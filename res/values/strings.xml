@@ -1,0 +1,7 @@
+<resources>
+
+    <string name="app_name">Memo</string>
+    <string name="action_title">Memo</string>
+    <string name="action_description">You can write on current screen instantly</string>
+
+</resources>

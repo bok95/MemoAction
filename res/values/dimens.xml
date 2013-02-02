@@ -1,0 +1,17 @@
+<resources>
+
+    <dimen name="finger_button_width">66dp</dimen>
+    <dimen name="edge_detection_width">26dp</dimen>
+    <dimen name="human_finger_length">720dp</dimen>
+    <dimen name="finger_pie_length">220dp</dimen>
+    <dimen name="finger_edge_margin_left">40dp</dimen>
+    <dimen name="finger_edge_margin_right">80dp</dimen>
+    <dimen name="guide_string_offset">520dp</dimen>
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_medium">8dp</dimen>
+    <dimen name="padding_large">16dp</dimen>
+    <dimen name="alert_dialog_button_bar_height">48dip</dimen>
+
+    <dimen name="touch_slop">3dip</dimen>
+
+</resources>

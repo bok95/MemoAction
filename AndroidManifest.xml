@@ -1,0 +1,43 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="fingo.plugin.action.memo"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="14" />
+
+    <application
+        android:name="fingo.plugin.action.FingoApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/memo_logo"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Translucent" >
+        <activity
+            android:name="fingo.plugin.action.memo.MemoAction"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name="fingo.plugin.action.memo.MemoActionScanReceiver" >
+            <intent-filter>
+                <action android:name="SCAN_INSTALLED_FINGO_ACTION" >
+                </action>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="fingo.plugin.action.memo.MemoActionReceiver" >
+            <intent-filter>
+                <action android:name="ACTION_DO" >
+                </action>
+            </intent-filter>
+        </receiver>
+    </application>
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+</manifest>
