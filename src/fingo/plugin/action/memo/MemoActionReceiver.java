@@ -16,10 +16,8 @@ import android.os.Environment;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnLayoutChangeListener;
-import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.MarginLayoutParams;
 import android.view.WindowManager;
@@ -29,8 +27,7 @@ import android.widget.LinearLayout.LayoutParams;
 import fingo.plugin.action.AbstractActionReceiver;
 import fingo.plugin.action.FingoApplication;
 
-public class MemoActionReceiver extends AbstractActionReceiver implements
-		OnTouchListener {
+public class MemoActionReceiver extends AbstractActionReceiver {
 
 	private boolean isRecording;
 	private ImageView pointerView;
@@ -51,7 +48,6 @@ public class MemoActionReceiver extends AbstractActionReceiver implements
 				R.layout.activity_memo_action, null);
 		FingoApplication.getInstance().setContainer(container);
 
-		container.setOnTouchListener(this);
 		// container.setBackgroundColor(Color.YELLOW); // for debugging
 		container.addOnLayoutChangeListener(new OnLayoutChangeListener() {
 
@@ -69,21 +65,6 @@ public class MemoActionReceiver extends AbstractActionReceiver implements
 		LinearLayout touchContainer = (LinearLayout) container
 				.findViewById(R.id.fingersContainer);
 
-		pointerView = new ImageView(context);
-		pointerView.setBackgroundResource(R.drawable.pointer2);
-		BitmapDrawable bd = (BitmapDrawable) pointerView.getBackground();
-		LayoutParams layoutParam = new LinearLayout.LayoutParams(bd.getBitmap()
-				.getWidth(), bd.getBitmap().getHeight());
-		pointerView.setLayoutParams(layoutParam);
-
-		pointerView.setVisibility(View.GONE);
-		touchContainer.addView(pointerView);
-
-		pointerMargin = new ViewGroup.MarginLayoutParams(
-				pointerView.getLayoutParams());
-
-		pointerOffsetX = bd.getBitmap().getWidth() / 2;
-		pointerOffsetY = bd.getBitmap().getHeight() / 2;
 		isRecording = true;
 		createWritableView(container);
 	}
@@ -157,12 +138,6 @@ public class MemoActionReceiver extends AbstractActionReceiver implements
 		save("memo.png");
 		unblock();
 		isRecording = false;
-	}
-
-	@Override
-	public boolean onTouch(View arg0, MotionEvent arg1) {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 	@Override

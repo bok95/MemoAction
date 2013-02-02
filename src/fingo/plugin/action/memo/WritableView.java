@@ -18,10 +18,11 @@ public class WritableView extends View {
 	private Path mPath;
 	private Paint mBitmapPaint;
 	private Paint mPaint;
-	private Context c;
+	private Context context;
 
 	public WritableView(Context c, Paint paint) {
 		super(c);
+		this.context = c;
 
 		mPath = new Path();
 		mBitmapPaint = new Paint(Paint.DITHER_FLAG);
@@ -97,5 +98,4 @@ public class WritableView extends View {
 		}
 		return true;
 	}
-
 }
